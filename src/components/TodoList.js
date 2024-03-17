@@ -11,9 +11,13 @@ function TodoList() {
             return;
         }
 
-        const newTodos = [todo, ...todos];
-
-        setTodos(newTodos);
+        const index = todos.findIndex(element => element.text === todo.text);
+        if (index === -1) {
+            const newTodos = [todo, ...todos];
+            setTodos(newTodos);
+        } else {
+            alert(todo.text +" already exists in your To do list !");
+        }
     };
 
     const updateTodo = (todoId, newValue) => {
